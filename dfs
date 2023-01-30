@@ -1,0 +1,25 @@
+ void dfs(vector<int> adj[] , int i ,vector<int>& v , vector<int>& vis)
+    {
+        vis[i] =1;
+        
+        for(auto it : adj[i])
+        {
+            if(!vis[it])
+          {  v.push_back(it);
+            dfs(adj , it , v , vis);}
+        }
+        
+    }
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        // Code here
+        vector<int> v;
+        vector<int> vis(V , 0);
+        v.push_back(0);
+        for(int i=0;i<V;i++)
+        {
+            if(!vis[i])
+            dfs(adj , i , v , vis);
+        }
+        return  v;
+        
+    }
